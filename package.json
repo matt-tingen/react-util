@@ -5,6 +5,9 @@
   "author": "Matt Tingen <matt.tingen@gmail.com>",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
   "license": "MIT",
   "scripts": {
     "clean": "rm -rf dist",
