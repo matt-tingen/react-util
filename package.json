@@ -1,16 +1,22 @@
 {
   "name": "@matt-tingen/react-hooks",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "repository": "git@github.com:matt-tingen/react-hooks.git",
   "author": "Matt Tingen <matt.tingen@gmail.com>",
-  "main": "index.js",
+  "main": "dist/index.js",
   "license": "MIT",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "yarn clean && tsc -p tsconfig.json",
+    "prepare": "yarn build"
+  },
   "peerDependencies": {
     "react": "^16.13.1",
     "react-use": "^14.2.0"
   },
   "devDependencies": {
     "@types/react": "^16.9.34",
-    "react-use": "^14.2.0"
+    "react-use": "^14.2.0",
+    "typescript": "^3.8.3"
   }
 }

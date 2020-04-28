@@ -2,13 +2,17 @@
   "compilerOptions": {
     "module": "commonjs",
     "forceConsistentCasingInFileNames": true,
+    "lib": ["es2019", "DOM"],
     "target": "es6",
     "removeComments": true,
     "strict": true,
     "noImplicitAny": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "declaration": true,
+    // https://github.com/streamich/react-use/issues/892
+    "skipLibCheck": true
   },
   "include": ["src/**/*"]
 }
