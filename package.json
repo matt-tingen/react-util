@@ -4,6 +4,7 @@
   "repository": "git@github.com:matt-tingen/react-hooks.git",
   "author": "Matt Tingen <matt.tingen@gmail.com>",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "license": "MIT",
   "scripts": {
     "clean": "rm -rf dist",
