@@ -1,0 +1,16 @@
+{
+  "name": "@matt-tingen/react-hooks",
+  "version": "0.1.0",
+  "repository": "git@github.com:matt-tingen/react-hooks.git",
+  "author": "Matt Tingen <matt.tingen@gmail.com>",
+  "main": "index.js",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^16.13.1",
+    "react-use": "^14.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.34",
+    "react-use": "^14.2.0"
+  }
+}
