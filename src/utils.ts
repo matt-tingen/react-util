@@ -24,6 +24,7 @@ export const useStableSetter = <S>(setState: StateSetter<S>) => {
 
     // If a valid use case for doing this is found, consider adding an "unsafe"
     // variant of pluggable hooks.
+    // eslint-disable-next-line no-console
     console.warn(
       'The `setState` passed to a pluggable hook changed between renders. This is unsupported. The original setter will be used.',
     );

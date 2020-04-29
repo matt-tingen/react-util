@@ -15,6 +15,7 @@ export const usePluggableMethods = <S, MF extends MethodsFactory<S>>(
   [state, setState]: StatePair<S>,
   methodsFactory: MF,
 ) => {
+  // eslint-disable-next-line no-param-reassign
   setState = useStableSetter(setState);
 
   // It is assumed that the _name_ of the produced methods will not change for a
