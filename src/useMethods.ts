@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { StatePair, StateInitializer } from './utils';
+import { StatePair, StateInitializer, useStableSetter } from './utils';
 
 type MethodsFactory<S> = (state: S) => Methods<S>;
 
@@ -15,6 +15,8 @@ export const usePluggableMethods = <S, MF extends MethodsFactory<S>>(
   [state, setState]: StatePair<S>,
   methodsFactory: MF,
 ) => {
+  setState = useStableSetter(setState);
+
   // It is assumed that the _name_ of the produced methods will not change for a
   // given factory.
   // eslint-disable-next-line react-hooks/exhaustive-deps
