@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { StatePair, StateInitializer, useStableSetter } from './utils';
+import { InputStatePair, StateInitializer, useStableSetter } from './utils';
 
 type MethodsFactory<S> = (state: S) => Methods<S>;
 
@@ -12,7 +12,7 @@ type Dispatchers<M extends Methods<unknown>> = {
 };
 
 export const usePluggableMethods = <S, MF extends MethodsFactory<S>>(
-  [state, setState]: StatePair<S>,
+  [state, setState]: InputStatePair<S>,
   methodsFactory: MF,
 ) => {
   // eslint-disable-next-line no-param-reassign

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { usePluggableMethods } from './useMethods';
-import { StateInitializer, StatePair } from './utils';
+import { StateInitializer, InputStatePair } from './utils';
 
 const toggleMethodsFactory = (state: boolean) => ({
   toggle(nextValue?: boolean) {
@@ -8,7 +8,7 @@ const toggleMethodsFactory = (state: boolean) => ({
   },
 });
 
-export const usePluggableToggle = (statePair: StatePair<boolean>) => {
+export const usePluggableToggle = (statePair: InputStatePair<boolean>) => {
   const [state, { toggle }] = usePluggableMethods(
     statePair,
     toggleMethodsFactory,

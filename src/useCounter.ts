@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { usePluggableMethods } from './useMethods';
-import { StatePair } from './utils';
+import { InputStatePair } from './utils';
 
 interface CounterConfig {
   initialValue: number;
@@ -35,7 +35,7 @@ const counterMethodsFactoryFactory = ({
 };
 
 export const usePluggableCounter = (
-  statePair: StatePair<number>,
+  statePair: InputStatePair<number>,
   {
     initialValue = 0,
     min = -Infinity,

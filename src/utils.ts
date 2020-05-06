@@ -1,7 +1,8 @@
 import { useRef } from 'react';
 
 export type StateSetter<S> = React.Dispatch<React.SetStateAction<S>>;
-export type StatePair<S> = [S, StateSetter<S>];
+export type StatePair<S> = readonly [S, StateSetter<S>];
+export type InputStatePair<S> = readonly [S, StateSetter<S>, ...unknown[]];
 export type StateInitializer<S> = S | (() => S);
 
 export const resolveStateSetter = <S>(
