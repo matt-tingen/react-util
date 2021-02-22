@@ -26,27 +26,33 @@ const register = (storage: Storage, key: string) => {
 type Serialize<S> = (value: S) => string;
 type Deserialize<S> = (string: string) => S;
 
-export interface StorageOptions<S> {
-  serialize: Serialize<S>;
-  deserialize: Deserialize<S>;
+export interface StorageOptions<T> {
+  storage: Storage;
+  serialize: Serialize<T>;
+  deserialize: Deserialize<T>;
+  // The value is of type unknown because the deserialized value may be from an
+  // older version of the instantiated hook. That is, it may need to be merged
+  // with defaults to bring it up to date.
+  prepareValueAfterLoad(value: unknown): T;
 }
 
 const defaultOptions: StorageOptions<unknown> = {
+  storage: localStorage,
   serialize: JSON.stringify,
   deserialize: JSON.parse,
+  prepareValueAfterLoad: (value) => value,
 };
 
-const read = <S>(
-  storage: Storage,
+const read = <T>(
   key: string,
-  defaultValue: S,
-  { serialize, deserialize }: StorageOptions<S>,
+  defaultValue: T,
+  { storage, serialize, deserialize, prepareValueAfterLoad }: StorageOptions<T>,
 ) => {
   try {
     const storageValue = storage.getItem(key);
 
     if (storageValue !== null) {
-      return deserialize(storageValue);
+      return prepareValueAfterLoad(deserialize(storageValue));
     }
 
     if (defaultValue) {
@@ -68,17 +74,17 @@ const read = <S>(
 // `useLocalStorage`/`useSessionStorage` because those hooks do not synchronize
 // multiple instances of hooks using the same storage+key.
 const createStorageStateHook = <S>(
-  storage: Storage,
   key: string,
   defaultInitialState: S,
-  options: StorageOptions<S> = defaultOptions as StorageOptions<S>,
+  options?: Partial<StorageOptions<S>>,
 ) => {
+  const allOptions = { ...(defaultOptions as StorageOptions<S>), ...options };
+  const { storage, serialize } = allOptions;
+
   register(storage, key);
 
-  const initialState = read(storage, key, defaultInitialState, options);
+  const initialState = read(key, defaultInitialState, allOptions);
   const useGlobalState = createGlobalStateHook(initialState);
-
-  const { serialize, deserialize } = options;
 
   return () => {
     const [state, setState] = useGlobalState();
@@ -93,7 +99,7 @@ const createStorageStateHook = <S>(
 
         try {
           storage.setItem(key, value);
-          setState(deserialize(value));
+          setState(newState);
         } catch (error) {
           // eslint-disable-next-line no-console
           console.error(error);
