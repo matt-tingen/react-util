@@ -1,6 +1,6 @@
 {
   "name": "@matt-tingen/react-hooks",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "repository": "git@github.com:matt-tingen/react-hooks.git",
   "author": "Matt Tingen <matt.tingen@gmail.com>",
   "main": "dist/index.js",
