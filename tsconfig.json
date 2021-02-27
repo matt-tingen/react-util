@@ -4,6 +4,7 @@
     "forceConsistentCasingInFileNames": true,
     "lib": ["es2019", "DOM"],
     "target": "es6",
+    "jsx": "react",
     "removeComments": true,
     "strict": true,
     "noImplicitAny": true,

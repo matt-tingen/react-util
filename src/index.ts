@@ -1,3 +1,4 @@
+export { default as createStatefulContext } from './createStatefulContext';
 export { default as createGlobalStateHook } from './createGlobalStateHook';
 export { default as createStorageStateHook } from './createStorageStateHook';
 export { default as useToggle, usePluggableToggle } from './useToggle';
