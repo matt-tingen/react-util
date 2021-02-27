@@ -1,7 +1,7 @@
 import { useAsync as useAsync_ } from 'react-use';
+import { FunctionReturningPromise } from 'react-use/lib/misc/types';
 
-const useAsync = <Result = unknown, Args extends never[] = never[]>(
-  fn: (...args: Args | []) => Promise<Result>,
-) => useAsync_(fn, [fn]);
+const useAsync = <T extends FunctionReturningPromise>(fn: T) =>
+  useAsync_(fn, [fn]);
 
 export default useAsync;

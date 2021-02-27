@@ -1,4 +1,4 @@
-import createGlobalState from 'react-use/lib/createGlobalState';
+import { createGlobalState } from 'react-use';
 import { StatePair } from './utils';
 
 // This is re-exported because `react-use`'s `createGlobalState` ORs `undefined`

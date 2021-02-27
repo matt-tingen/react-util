@@ -27,16 +27,16 @@ export const usePluggableMethods = <S, MF extends MethodsFactory<S>>(
 
   const dispatchers = useMemo(
     () =>
-      Object.fromEntries(
+      (Object.fromEntries(
         methodNames.map((name) => [
           name,
           (...args: never[]) => {
             setState((prev) => methodsFactory(prev)[name](...args));
           },
         ]),
-      ),
+      ) as unknown) as Dispatchers<ReturnType<MF>>,
     [methodsFactory, methodNames, setState],
-  ) as Dispatchers<ReturnType<MF>>;
+  );
 
   return [state, dispatchers] as const;
 };

@@ -1,9 +1,17 @@
 import { useAsyncFn as useAsyncFn_ } from 'react-use';
+import {
+  FunctionReturningPromise,
+  PromiseType,
+} from 'react-use/lib/misc/types';
 import { AsyncState } from 'react-use/lib/useAsync';
 
-const useAsyncFn = <Result = unknown, Args extends never[] = never[]>(
-  fn: (...args: Args | []) => Promise<Result>,
-  initialState?: AsyncState<Result>,
+type StateFromFunctionReturningPromise<
+  T extends FunctionReturningPromise
+> = AsyncState<PromiseType<ReturnType<T>>>;
+
+const useAsyncFn = <T extends FunctionReturningPromise>(
+  fn: T,
+  initialState?: StateFromFunctionReturningPromise<T>,
 ) => useAsyncFn_(fn, [fn], initialState);
 
 export default useAsyncFn;
