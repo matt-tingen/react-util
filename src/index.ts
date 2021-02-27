@@ -7,4 +7,5 @@ export { default as useMethods, usePluggableMethods } from './useMethods';
 export { default as useAsyncFn } from './useAsyncFn';
 export { default as useAsync } from './useAsync';
 export { default as useEvergreenRef } from './useEvergreenRef';
+export { default as useTitle } from './useTitle';
 export { default as transformAsyncState } from './transformAsyncState';
