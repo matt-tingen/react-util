@@ -2,7 +2,7 @@ import * as React from 'react';
 
 const missingValue = {};
 
-const createStatefulContext = <T extends unknown>(
+export const createStatefulContext = <T,>(
   useValue: () => T,
   defaultValue?: T,
 ) => {
@@ -32,5 +32,3 @@ const createStatefulContext = <T extends unknown>(
 
   return [useContextValue, Provider, context] as const;
 };
-
-export default createStatefulContext;

@@ -1,6 +1,6 @@
 import { AsyncState } from 'react-use/lib/useAsync';
 
-const transformAsyncState = <T, U>(
+export const transformAsyncState = <T, U>(
   state: AsyncState<T>,
   transform: (value: T | undefined) => U,
 ) => {
@@ -10,5 +10,3 @@ const transformAsyncState = <T, U>(
 
   return { value: transformedValue, ...rest } as AsyncState<U>;
 };
-
-export default transformAsyncState;

@@ -10,7 +10,7 @@ export const resolveStateSetter = <S>(
   currentState: S,
 ) => {
   if (typeof newState === 'function') {
-    return (newState as Function)(currentState);
+    return (newState as (prevState: S) => S)(currentState);
   }
 
   return newState;

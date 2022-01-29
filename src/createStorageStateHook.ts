@@ -1,6 +1,6 @@
 import { useCallback, useRef } from 'react';
-import createGlobalStateHook from './createGlobalStateHook';
-import { StateSetter, resolveStateSetter } from './utils';
+import { createGlobalStateHook } from './createGlobalStateHook';
+import { resolveStateSetter, StateSetter } from './utils';
 
 const registeredKeys = new Map<Storage, Set<string>>();
 
@@ -73,7 +73,7 @@ const read = <T>(
 // This exists separately from `react-use`'s
 // `useLocalStorage`/`useSessionStorage` because those hooks do not synchronize
 // multiple instances of hooks using the same storage+key.
-const createStorageStateHook = <S>(
+export const createStorageStateHook = <S>(
   key: string,
   defaultInitialState: S,
   options?: Partial<StorageOptions<S>>,
@@ -122,5 +122,3 @@ const createStorageStateHook = <S>(
     return [state, set, reset] as const;
   };
 };
-
-export default createStorageStateHook;

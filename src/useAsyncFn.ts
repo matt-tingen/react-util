@@ -5,13 +5,10 @@ import {
 } from 'react-use/lib/misc/types';
 import { AsyncState } from 'react-use/lib/useAsync';
 
-type StateFromFunctionReturningPromise<
-  T extends FunctionReturningPromise
-> = AsyncState<PromiseType<ReturnType<T>>>;
+type StateFromFunctionReturningPromise<T extends FunctionReturningPromise> =
+  AsyncState<PromiseType<ReturnType<T>>>;
 
-const useAsyncFn = <T extends FunctionReturningPromise>(
+export const useAsyncFn = <T extends FunctionReturningPromise>(
   fn: T,
   initialState?: StateFromFunctionReturningPromise<T>,
 ) => useAsyncFn_(fn, [fn], initialState);
-
-export default useAsyncFn;

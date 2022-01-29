@@ -11,28 +11,26 @@ interface CounterConfig {
 const clamp = (value: number, min: number, max: number) =>
   Math.max(min, Math.min(value, max));
 
-const counterMethodsFactoryFactory = ({
-  initialValue,
-  min,
-  max,
-}: CounterConfig) => (state: number) => {
-  const c = (count: number) => clamp(count, min, max);
+const counterMethodsFactoryFactory =
+  ({ initialValue, min, max }: CounterConfig) =>
+  (state: number) => {
+    const c = (count: number) => clamp(count, min, max);
 
-  return {
-    inc(delta = 1) {
-      return c(state + delta);
-    },
-    dec(delta = 1) {
-      return c(state - delta);
-    },
-    set(count: number) {
-      return c(count);
-    },
-    reset() {
-      return c(initialValue);
-    },
+    return {
+      inc(delta = 1) {
+        return c(state + delta);
+      },
+      dec(delta = 1) {
+        return c(state - delta);
+      },
+      set(count: number) {
+        return c(count);
+      },
+      reset() {
+        return c(initialValue);
+      },
+    };
   };
-};
 
 export const usePluggableCounter = (
   statePair: InputStatePair<number>,
@@ -59,5 +57,3 @@ export const useCounter = ({
     useState(() => clamp(initialValue, min, max)),
     { initialValue, min, max },
   );
-
-export default useCounter;

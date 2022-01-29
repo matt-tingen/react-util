@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 
 // The `useTitle` from `react-use` does not restore on unmount when using
 // `StrictMode`.
-const useTitle = (title: string) => {
+export const useTitle = (title: string) => {
   const previousTitleRef = useRef(document.title);
 
   useEffect(() => {
@@ -15,5 +15,3 @@ const useTitle = (title: string) => {
     };
   }, [title]);
 };
-
-export default useTitle;

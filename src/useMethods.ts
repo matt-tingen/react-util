@@ -20,30 +20,30 @@ export const usePluggableMethods = <S, MF extends MethodsFactory<S>>(
 
   // It is assumed that the _name_ of the produced methods will not change for a
   // given factory.
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const methodNames = useMemo(() => Object.keys(methodsFactory(state)), [
-    methodsFactory,
-  ]);
+
+  const methodNames = useMemo(
+    () => Object.keys(methodsFactory(state)),
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- any state object is acceptable here; it doesn't need to be the latest
+    [methodsFactory],
+  );
 
   const dispatchers = useMemo(
     () =>
-      (Object.fromEntries(
+      Object.fromEntries(
         methodNames.map((name) => [
           name,
           (...args: never[]) => {
             setState((prev) => methodsFactory(prev)[name](...args));
           },
         ]),
-      ) as unknown) as Dispatchers<ReturnType<MF>>,
+      ) as unknown as Dispatchers<ReturnType<MF>>,
     [methodsFactory, methodNames, setState],
   );
 
   return [state, dispatchers] as const;
 };
 
-const useMethods = <S, MF extends MethodsFactory<S>>(
+export const useMethods = <S, MF extends MethodsFactory<S>>(
   initialState: StateInitializer<S>,
   methodsFactory: MF,
 ) => usePluggableMethods(useState(initialState), methodsFactory);
-
-export default useMethods;
