@@ -1,4 +1,4 @@
-import { AsyncState } from 'react-use/lib/useAsync';
+import type { AsyncState } from 'react-use/lib/useAsync';
 
 export const transformAsyncState = <T, U>(
   state: AsyncState<T>,

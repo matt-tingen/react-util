@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "ESNext",
+    "moduleResolution": "node",
     "forceConsistentCasingInFileNames": true,
     "lib": ["es2019", "DOM"],
-    "target": "es6",
+    "target": "ESNext",
     "jsx": "react",
     "removeComments": true,
     "strict": true,

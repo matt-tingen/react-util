@@ -1,9 +1,9 @@
 import { useAsyncFn as useAsyncFn_ } from 'react-use';
-import {
+import type {
   FunctionReturningPromise,
   PromiseType,
 } from 'react-use/lib/misc/types';
-import { AsyncState } from 'react-use/lib/useAsync';
+import type { AsyncState } from 'react-use/lib/useAsync';
 
 type StateFromFunctionReturningPromise<T extends FunctionReturningPromise> =
   AsyncState<PromiseType<ReturnType<T>>>;
