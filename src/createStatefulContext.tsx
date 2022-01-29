@@ -7,9 +7,7 @@ export const createStatefulContext = <T,>(
   defaultValue?: T,
 ) => {
   const context = React.createContext<T>(
-    defaultValue === undefined
-      ? ((missingValue as unknown) as T)
-      : defaultValue,
+    defaultValue === undefined ? (missingValue as unknown as T) : defaultValue,
   );
 
   const Provider = ({ children }: { children: React.ReactNode }) => {
@@ -30,5 +28,5 @@ export const createStatefulContext = <T,>(
     return value;
   };
 
-  return [useContextValue, Provider, context] as const;
+  return [useContextValue, Provider] as const;
 };
