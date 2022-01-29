@@ -1,5 +1,4 @@
 export { createStatefulContext } from './createStatefulContext';
-export { createGlobalStateHook } from './createGlobalStateHook';
 export { useToggle, usePluggableToggle } from './useToggle';
 export { useCounter, usePluggableCounter } from './useCounter';
 export { useMethods, usePluggableMethods } from './useMethods';
