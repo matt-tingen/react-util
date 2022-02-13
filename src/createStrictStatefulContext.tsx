@@ -9,6 +9,7 @@ export const createStrictStatefulContext = <TValue, TName extends string>(
 ): NamedStrictStatefulContextBundle<TValue, TName> => {
   const hookName = `use${name}`;
   const providerName = `${name}Provider`;
+  const statefulProviderName = `Stateful${name}Provider`;
   const {
     [hookName as `use${TName}`]: useContextValue,
     [providerName as `${TName}Provider`]: Provider,
@@ -18,6 +19,8 @@ export const createStrictStatefulContext = <TValue, TName extends string>(
     useValue,
     Provider as unknown as React.Provider<TValue>,
   );
+
+  StatefulProvider.displayName = statefulProviderName;
 
   return {
     [hookName]: useContextValue,
