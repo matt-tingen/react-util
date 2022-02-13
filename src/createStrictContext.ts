@@ -1,21 +1,7 @@
 import { createContext } from './createContext';
+import { NamedStrictContextBundle } from './strictContext';
 
 const missingValue = Symbol('missing context value');
-
-interface Key {
-  _: unknown;
-}
-
-export type NamedStrictContextHook<TValue, TName extends string> = {
-  [K in keyof Key as `use${TName}`]: () => TValue;
-};
-export type NamedProvider<TValue, TName extends string> = {
-  [K in keyof Key as `${TName}Provider`]: React.Provider<TValue>;
-};
-export type NamedStrictContextBundle<
-  TValue,
-  TName extends string,
-> = NamedStrictContextHook<TValue, TName> & NamedProvider<TValue, TName>;
 
 export const createStrictContext =
   <TValue>() =>

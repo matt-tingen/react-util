@@ -1,14 +1,12 @@
 import * as React from 'react';
 import { createStatefulProvider } from './createStatefulProvider';
-import {
-  createStrictContext,
-  NamedStrictContextBundle,
-} from './createStrictContext';
+import { createStrictContext } from './createStrictContext';
+import { NamedStrictStatefulContextBundle } from './strictContext';
 
 export const createStrictStatefulContext = <TValue, TName extends string>(
   name: TName,
   useValue: () => TValue,
-): NamedStrictContextBundle<TValue, TName> => {
+): NamedStrictStatefulContextBundle<TValue, TName> => {
   const hookName = `use${name}`;
   const providerName = `${name}Provider`;
   const {
