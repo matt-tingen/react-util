@@ -12,9 +12,7 @@
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "outDir": "dist",
-    "declaration": true,
-    // https://github.com/streamich/react-use/issues/892
-    "skipLibCheck": true
+    "declaration": true
   },
   "include": ["src/**/*"]
 }
