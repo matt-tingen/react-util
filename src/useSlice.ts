@@ -8,7 +8,7 @@ import type {
 } from '@reduxjs/toolkit';
 import type { _ActionCreatorWithPreparedPayload } from '@reduxjs/toolkit/dist/createAction';
 import produce from 'immer';
-import { Dispatch, useMemo, useReducer, useRef } from 'react';
+import { Dispatch, useEffect, useMemo, useReducer, useRef } from 'react';
 
 const mapValues = <T, V>(
   object: T,
@@ -87,12 +87,14 @@ export const useSlice = <T, CR extends SliceCaseReducers<T>>(
 ] => {
   const initialSliceRef = useRef(slice);
 
-  if (slice !== initialSliceRef.current) {
-    // eslint-disable-next-line no-console
-    console.error(
-      `The slice provided to useSlice must be stable. The slice "${initialSliceRef.current.name}" changed between renders`,
-    );
-  }
+  useEffect(() => {
+    if (slice !== initialSliceRef.current) {
+      // eslint-disable-next-line no-console
+      console.error(
+        `The slice provided to useSlice must be stable. The slice "${initialSliceRef.current.name}" changed between renders`,
+      );
+    }
+  }, [slice]);
 
   const [state, dispatch] = useReducer(slice.reducer, slice, (slice) => {
     const sliceInitialState = getSliceInitialState(slice);
