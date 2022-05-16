@@ -29,7 +29,7 @@
     "@react-hookz/web": "^14.2.2",
     "@reduxjs/toolkit": "^1.7.2",
     "immer": "^9",
-    "react": "^16.8.0 || ^17"
+    "react": "^16.8.0 || ^17 || ^18"
   },
   "peerDependenciesMeta": {
     "@reduxjs/toolkit": {
@@ -43,11 +43,12 @@
     "@matt-tingen/eslint-config": "^0.4.2",
     "@react-hookz/web": "^14.2.2",
     "@reduxjs/toolkit": "^1.7.2",
-    "@types/react": "^17.0.38",
+    "@types/react": "^18.0.9",
     "eslint": "^8.8.0",
     "immer": "^9.0.12",
     "microbundle": "^0.14.2",
-    "react": "^17.0.2",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
     "typescript": "^4.5.5"
   }
 }
