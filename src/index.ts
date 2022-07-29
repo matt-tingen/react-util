@@ -5,3 +5,4 @@ export { createStrictStatefulContext } from './createStrictStatefulContext';
 export { useAutoAsync } from './useAutoAsync';
 export type { AutoAsyncState } from './useAutoAsync';
 export { useSlice } from './useSlice';
+export { useHandler } from './useHandler';
