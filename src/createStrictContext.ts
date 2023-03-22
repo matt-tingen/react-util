@@ -28,6 +28,6 @@ export const createStrictContext =
 
     return {
       [hookName]: useStrictValue,
-      [providerName]: Provider,
-    };
+      [providerName]: Provider as React.Provider<TValue>,
+    } as NamedStrictContextBundle<TValue, TName>;
   };

@@ -25,5 +25,5 @@ export const createStrictStatefulContext = <TValue, TName extends string>(
   return {
     [hookName]: useContextValue,
     [providerName]: StatefulProvider,
-  };
+  } as NamedStrictStatefulContextBundle<TValue, TName>;
 };
