@@ -1,6 +1,6 @@
 {
   "name": "@matt-tingen/react-hooks",
-  "version": "0.6.1",
+  "version": "0.7.0",
   "repository": "git@github.com:matt-tingen/react-hooks.git",
   "author": "Matt Tingen <matt.tingen@gmail.com>",
   "type": "module",
@@ -8,9 +8,9 @@
   "source": "src/index.ts",
   "exports": {
     ".": {
-      "default":"./dist/index.modern.js",
+      "default": "./dist/index.modern.js",
       "types": "./dist/index.d.ts"
-    } ,
+    },
     "./useSlice": {
       "default": "./dist/useSlice.modern.js",
       "types": "./dist/useSlice.d.ts"
