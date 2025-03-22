@@ -1,7 +1,7 @@
 {
-  "name": "@matt-tingen/react-hooks",
-  "version": "0.7.0",
-  "repository": "git@github.com:matt-tingen/react-hooks.git",
+  "name": "@matt-tingen/react-util",
+  "version": "1.0.0",
+  "repository": "git@github.com:matt-tingen/react-util.git",
   "license": "MIT",
   "author": "Matt Tingen <matt.tingen@gmail.com>",
   "sideEffects": false,
