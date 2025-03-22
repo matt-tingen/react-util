@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { createStatefulProvider } from './createStatefulProvider';
 import { createStrictContext } from './createStrictContext';
 import { NamedStrictStatefulContextBundle } from './strictContext';
