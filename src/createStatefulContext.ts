@@ -1,7 +1,7 @@
 import { createContext } from './createContext';
 import { createStatefulProvider } from './createStatefulProvider';
 
-export const createStatefulContext = <TValue,>(
+export const createStatefulContext = <TValue>(
   name: string,
   useValue: () => TValue,
   defaultValue?: TValue,
