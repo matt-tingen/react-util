@@ -25,27 +25,26 @@
     "ts": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@matt-tingen/util": "^2.2.0"
+    "@matt-tingen/util": "^3.2.0"
   },
   "devDependencies": {
     "@matt-tingen/eslint-config": "^0.12.0",
     "@reduxjs/toolkit": "^1.7.2",
-    "@types/node": "^18.15.5",
-    "@types/react": "^18.0.9",
+    "@types/node": "^18.19.81",
+    "@types/react": "^18.3.19",
     "eslint": "^9.23.0",
     "immer": "^9.0.12",
-    "microbundle": "^0.14.2",
     "prettier": "^3.5.3",
     "prettier-plugin-packagejson": "^2.5.10",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "tsup": "^8.4.0",
-    "typescript": "^5.0.2"
+    "typescript": "^5.8.2"
   },
   "peerDependencies": {
     "@reduxjs/toolkit": "^1.7.2",
     "immer": "^9",
-    "react": "^16.8.0 || ^17 || ^18"
+    "react": "16.8 - 19"
   },
   "peerDependenciesMeta": {
     "@reduxjs/toolkit": {
