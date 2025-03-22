@@ -5,31 +5,23 @@
   "author": "Matt Tingen <matt.tingen@gmail.com>",
   "type": "module",
   "sideEffects": false,
-  "source": "src/index.ts",
   "exports": {
     ".": {
-      "default": "./dist/index.modern.js",
-      "types": "./dist/index.d.ts"
-    },
-    "./useSlice": {
-      "default": "./dist/useSlice.modern.js",
-      "types": "./dist/useSlice.d.ts"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     }
   },
   "main": "./dist/index.cjs",
-  "module": "./dist/index.module.js",
-  "unpkg": "./dist/index.umd.js",
-  "types": "dist/index.d.ts",
+  "types": "./dist/index.d.ts",
   "files": [
-    "dist/"
+    "dist"
   ],
   "license": "MIT",
   "scripts": {
-    "clean": "rm -rf dist",
-    "build": "microbundle --jsx React.createElement src/index.ts src/useSlice.ts",
+    "build": "tsup src/index.ts --clean --dts --format esm,cjs",
     "lint": "eslint --ext .ts,.tsx src",
     "ts": "tsc -p tsconfig.json --noEmit",
-    "prepare": "yarn ts && yarn lint && yarn clean && yarn build"
+    "prepack": "yarn ts && yarn lint && yarn clean && yarn build"
   },
   "peerDependencies": {
     "@reduxjs/toolkit": "^1.7.2",
@@ -54,6 +46,7 @@
     "microbundle": "^0.14.2",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "tsup": "^8.4.0",
     "typescript": "^5.0.2"
   },
   "dependencies": {
