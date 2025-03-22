@@ -21,7 +21,7 @@
     "build": "tsup src/index.ts --clean --dts --format esm,cjs",
     "format": "prettier --write src",
     "lint": "eslint --ext .ts,.tsx src",
-    "prepack": "yarn ts && yarn lint && yarn clean && yarn build",
+    "prepack": "pnpm ts && pnpm lint && pnpm build",
     "ts": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
