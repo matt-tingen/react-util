@@ -23,7 +23,7 @@
     "lint": "eslint --ext .ts,.tsx src",
     "ts": "tsc -p tsconfig.json --noEmit",
     "preversion": "pnpm ts && pnpm lint && pnpm build",
-    "postversion": "pnpm publish && git push"
+    "postversion": "pnpm publish && git push && git push --tags"
   },
   "dependencies": {
     "@matt-tingen/util": "^3.2.0"
