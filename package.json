@@ -21,8 +21,9 @@
     "build": "tsup src/index.ts --clean --dts --format esm,cjs",
     "format": "prettier --write src",
     "lint": "eslint --ext .ts,.tsx src",
-    "prepack": "pnpm ts && pnpm lint && pnpm build",
-    "ts": "tsc -p tsconfig.json --noEmit"
+    "ts": "tsc -p tsconfig.json --noEmit",
+    "preversion": "pnpm ts && pnpm lint && pnpm build",
+    "postversion": "pnpm publish && git push"
   },
   "dependencies": {
     "@matt-tingen/util": "^3.2.0"
