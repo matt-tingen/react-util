@@ -28,11 +28,11 @@
     "@matt-tingen/util": "^2.2.0"
   },
   "devDependencies": {
-    "@matt-tingen/eslint-config": "^0.4.2",
+    "@matt-tingen/eslint-config": "^0.12.0",
     "@reduxjs/toolkit": "^1.7.2",
     "@types/node": "^18.15.5",
     "@types/react": "^18.0.9",
-    "eslint": "^8.8.0",
+    "eslint": "^9.23.0",
     "immer": "^9.0.12",
     "microbundle": "^0.14.2",
     "prettier": "^3.5.3",

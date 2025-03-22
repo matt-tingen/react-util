@@ -10,7 +10,7 @@ import type { _ActionCreatorWithPreparedPayload } from '@reduxjs/toolkit/dist/cr
 import produce from 'immer';
 import { Dispatch, useEffect, useMemo, useReducer, useRef } from 'react';
 
-// eslint-disable-next-line @typescript-eslint/ban-types -- generic base
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type -- generic base
 const mapValues = <T extends {}, V>(
   object: T,
   iteree: (value: T[keyof T], key: keyof T) => V,
