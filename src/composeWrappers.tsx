@@ -14,11 +14,14 @@ export const composeWrappers = (
 ) =>
   memo(
     ({ children }: Children) =>
-      wrappers.reduceRight<JSX.Element | React.ReactNode>((node, Wrapper) => {
-        if (isValidElement(Wrapper)) {
-          return cloneElement<Children>(Wrapper, { children: node });
-        }
+      wrappers.reduceRight<React.JSX.Element | React.ReactNode>(
+        (node, Wrapper) => {
+          if (isValidElement(Wrapper)) {
+            return cloneElement<Children>(Wrapper, { children: node });
+          }
 
-        return <Wrapper>{node}</Wrapper>;
-      }, children) as JSX.Element,
+          return <Wrapper>{node}</Wrapper>;
+        },
+        children,
+      ) as React.JSX.Element,
   );

@@ -15,7 +15,7 @@ export type NamedStrictContextBundle<
 
 type NamedStatefulProvider<TName extends string> = {
   [K in keyof Key as `${TName}Provider`]: React.MemoExoticComponent<
-    ({ children }: { children: React.ReactNode }) => JSX.Element
+    ({ children }: { children: React.ReactNode }) => React.JSX.Element
   >;
 };
 export type NamedStrictStatefulContextBundle<
